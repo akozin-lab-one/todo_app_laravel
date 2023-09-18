@@ -10,7 +10,8 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/*.blade.php',
         "./resources/**/*.blade.php",
-        "./resources/**/*.js",
+        "./resources/css/***.css",
+        "./resources/js/***.js",
         "./resources/**/*.vue",
     ],
 
