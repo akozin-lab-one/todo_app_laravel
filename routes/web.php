@@ -35,11 +35,20 @@ Route::middleware([
                 //detailpage
                 Route::get('/detail/{id}', [AccountController::class, 'detailPage'])->name('user.account.detail');
 
+                //image upload
+                Route::post('upload/image', [AccountController::class, 'uploadImage'])->name('user.image.upload');
+
                 //editpage
                 Route::get('/edit/{id}', [AccountController::class, 'editPage'])->name('user.account.editpage');
 
                 //edit
                 Route::post('edit/data', [AccountController::class, 'editData'])->name('user.account.edit');
+
+                //password change
+                Route::get('password/change/{id}', [AccountController::class, 'passwordChangePage'])->name('user.account.password.change.Page');
+
+                //change password
+                Route::post('change/password', [AccountController::class, 'changePassword'])->name('user.change.password');
             });
 
             Route::prefix('ajax')->group(function(){
@@ -54,6 +63,7 @@ Route::middleware([
             Route::get('/mainPage', [adminAccountController::class, 'mainPage'])->name('admin.mainpage');
 
             Route::get('/account/{id}', [adminAccountController::class, 'accountPage'])->name('admin.account');
+
         });
 
     });

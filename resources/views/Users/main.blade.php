@@ -6,6 +6,7 @@
     <div class="container  static">
         <div class="grid lg:grid-cols-3 lg:gap-3 md:grid-cols-2 md:gap-2 sm:grid-cols-1 sm:gap-2 ">
             <div class="p-3">
+                <h3 class="font-bold text-blue-600 text-center">ToDo</h3>
                 @if ($task !== '')
                     @foreach ($task as $ta )
                     @if ($ta->status === 0)
@@ -42,6 +43,7 @@
                 @endif
             </div>
             <div class="p-3">
+                <h3 class="font-bold text-blue-600 text-center">Doing</h3>
                 @if ($task !== '')
                     @foreach ($task as $ta )
                     @if ($ta->status === 1)
@@ -78,6 +80,7 @@
                 @endif
             </div>
             <div class="">
+                <h3 class="font-bold text-blue-600 text-center">Done</h3>
                 @if ($task !== '')
                     @foreach ($task as $ta )
                     @if ($ta->status === 10)

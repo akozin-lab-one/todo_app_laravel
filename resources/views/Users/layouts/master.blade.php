@@ -38,9 +38,9 @@
                     <span class="sr-only">Open user menu</span>
 
                     @if (Auth::user()->image == null)
-                    <img class="rounded-full w-10 h-10 " src="{{asset('storage/image/unknown.jpg')}}" alt="">
+                    <img class="rounded-full w-10 h-10 " src="{{asset('storage/unknown.jpg')}}" alt="">
                     @else
-                    <img class="rounded-full w-10 h-10 " src="{{asset('storage/image/pro.jpg')}}" alt="">
+                    <img class="rounded-full w-10 h-10 " src="{{asset('storage/' . Auth::user()->image)}}" alt="">
                     @endif
                 </button>
                 <!-- Dropdown menu -->
@@ -54,6 +54,10 @@
                         <li>
                             <a href="{{route('user.account.detail', Auth::user()->id)}}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Acount</a>
+                        </li>
+                        <li>
+                            <a href="{{route('user.account.password.change.Page', Auth::user()->id)}}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Change Password</a>
                         </li>
                         <li>
                             <form action="{{route('logout')}}" method="POST" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">

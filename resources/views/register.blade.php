@@ -5,7 +5,7 @@
 @section('mainContent')
     <div class="grid grid-cols-2 gap-2 mt-28">
         <div class="flex justify-center align-center h-96">
-            <img class="border border-gray-300 rounded shadow-md" src="{{ asset('storage/image/note.png') }}" alt="">
+            <img class="border border-gray-300 rounded shadow-md" src="{{ asset('storage/to-do-list-apps.png') }}" alt="">
         </div>
         <div class="flex justify-center align-center p-3">
             <div class="border border-gray-300 drop-shadow-md rounded p-3">

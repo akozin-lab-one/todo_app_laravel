@@ -17,17 +17,8 @@
                         @if (Auth::user()->image == null)
                         <img class="rounded-full w-48 h-48 " src="{{asset('storage/image/unknown.jpg')}}" alt="">
                         @else
-                        <img class="rounded-full w-48 h-48 " src="{{asset('storage/image/pro.jpg')}}" alt="">
+                        <img class="rounded-full w-48 h-48 " src="{{asset('storage/' . Auth::user()->image)}}" alt="">
                         @endif
-                        <div class="">
-
-                            <input type="file" name="userImage" id="title"
-                                class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="Name">
-                                @error('userImage')
-                                <div class="text-sm text-red-600">{{ $message }}</div>
-                            @enderror
-                        </div>
                     </div>
                 </div>
                 <div class="">
@@ -50,37 +41,6 @@
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                                 placeholder="Email Address" value="{{old('userEmail',$user->email)}}">
                                 @error('userEmail')
-                                <div class="text-sm text-red-600">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="title"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Old Password</label>
-                            <input type="password" name="oldPassword" id="title"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="*******" >
-                                <input type="hidden" name="userId" value="{{Auth::user()->id}}">
-                                @error('oldPassword')
-                                <div class="text-sm text-red-600">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div>
-                            <label for="title"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New Password</label>
-                            <input type="password" name="newPassword" id="title"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="*******" >
-                                @error('newPassword')
-                                <div class="text-sm text-red-600">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <div class="">
-                            <label for="title"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
-                            <input type="Password" name="confirmPassword" id="title"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                placeholder="*******" >
-                                @error('confirmPassword')
                                 <div class="text-sm text-red-600">{{ $message }}</div>
                             @enderror
                         </div>

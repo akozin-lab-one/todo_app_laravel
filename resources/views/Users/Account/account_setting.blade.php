@@ -13,17 +13,28 @@
             <div class=" flex justify-center ">
                 <div class="">
                     @if (Auth::user()->image == null)
-                    <img class="rounded-full w-48 h-48 mx-auto " src="{{asset('storage/image/unknown.jpg')}}" alt="">
+                    <img class="rounded-full w-48 h-48 mx-auto " src="{{asset('storage/unknown.jpg')}}" alt="">
                     @else
-                    <img class="rounded-full w-48 h-48 mx-auto" src="{{asset('storage/image/pro.jpg')}}" alt="">
+                    <img class="rounded-full w-48 h-48 mx-auto" src="{{asset('storage/' . Auth::user()->image)}}" alt="no photo">
                     @endif
 
-                    <div class="mt-4">
+                    <form action="{{route('user.image.upload')}}" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="mt-4">
+                            <input type="hidden" name="userId" value="{{Auth::user()->id}}">
+                            <input type="hidden" name="userName" value="{{Auth::user()->name}}">
+                            <input type="file" name="userImage" id="title"
+                                class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="Name">
+                            @error('userImage')
+                                <div class="text-sm text-red-600">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                        <input type="file" name="userImage" id="title"
-                            class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="Name" disabled>
-                    </div>
+                        <div class="mt-3">
+                            <button class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="submit">Change Image</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="">
@@ -51,7 +62,7 @@
                                 placeholder="*******" disabled>
                         </div>
                         <div class="mt-6">
-                            <a  href="{{route('user.account.editpage', Auth::user()->id)}}">
+                            <a  href="{{route('user.account.editpage' , Auth::user()->id)}}">
                                 <button type="button" id="submitBtn"
                                 class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</button>
                             </a>
